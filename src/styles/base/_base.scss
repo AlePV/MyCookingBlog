@@ -1,0 +1,34 @@
+// Since it's a partial: you use "_" before the name of the file
+
+* {
+    box-sizing: border-box;
+    // This is a UNIVERSAL SELECTOR 
+    // '--> when I specify the height of something to be 50 it will take in account the border & the padding
+    // total height = height I want (border + padding already included)
+}
+
+html {
+    font-size: 62.5%;
+}
+// ^^^^^^^^^^^^^^^^^^ so I can use rems (which 1 rem is 16px), instead of pxs
+
+
+body {
+    color: $darkGrey;
+    font-family: Helvetica;
+    font-size: $mediumSize;
+    line-height: 1.6;
+}
+ 
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default; 
+}
+
+.isActive {
+    font-weight: bold;
+}
