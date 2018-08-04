@@ -20,6 +20,9 @@ const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 // To Authenticate with Google
 
+firebase.database().ref().set({
+    name: "Alejandra"
+});
 
 
 export {firebase, googleAuthProvider, database as default};

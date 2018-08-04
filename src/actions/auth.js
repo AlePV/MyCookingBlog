@@ -13,8 +13,6 @@ export const startLogin = () => {
 // --> Asynchronous func. 
 // Because I call things from firebase, I need my reference to firebase --> I need to import firebase
 // Pass the auth function to a function and this starts the process
-// .  popup --> Takes the provider as the only argument
-//         '--> display a little popup, pick your account and then you're authenticated
 
 export const logout = () => ({
     type: "LOGOUT"
