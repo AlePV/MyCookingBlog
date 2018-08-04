@@ -10,7 +10,25 @@ export const addBlogPost = (blogPost) => ({
 });
 
 // ------------------------------> START ADD BLOG-POST STARTS
+export const startAddBlogPost = (blogPostData = {}) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const {
+            recipeName = "",
+            ingredients = "",
+            procedure = "",
+            createdAt = 0
+        } = blogPostData;
+        const blogPost = {recipeName, ingredients, procedure, createdAt};
 
+        return database.ref(`users/${uid}/blogPosts`).push(blogPost).then((ref) => {
+            dispatch(addBlogPost({
+                id: ref.key,
+                ...blogPost
+            }))
+        });
+    };
+};
 // ------------------------------> START ADD BLOG-POST ENDS
 
 ////////////////////////////////// ADD BLOG-POST ENDS //////////////////////////////////
@@ -25,7 +43,15 @@ export const removeBlogPost = ({id} = {}) => ({
 });
 
 // ------------------------------> START REMOVE BLOG-POST STARTS
+export const startRemoveBlogPost = ({id} = {}) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
 
+        return database.ref(`users/${uid}/blogPosts/${id}`).remove().then(() => {
+            dispatch(removeBlogPost({id}));
+        })
+    };
+};
 // ------------------------------> START REMOVE BLOG-POST ENDS
 
 ////////////////////////////////// REMOVE BLOG-POST ENDS //////////////////////////////////
@@ -40,9 +66,17 @@ export const editBlogPost = (id, updates) => ({
     updates
 });
 
-// ------------------------------> EDIT ADD BLOG-POST STARTS
+// ------------------------------> START EDIT BLOG-POST STARTS
+export const startEditBlogPost = (id, updates) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
 
-// ------------------------------> EDIT ADD BLOG-POST ENDS
+        return database.ref(`users/${uid}/blogPosts/${id}`).update(updates).then(() => {
+            dispatch(editBlogPost(id, updates));
+        });
+    };
+};
+// ------------------------------> START EDIT BLOG-POST ENDS
 
 ////////////////////////////////// EDIT BLOG-POST ENDS //////////////////////////////////
 
@@ -56,9 +90,30 @@ export const setBlogPosts = (blogPosts) => ({
     blogPosts
 });
 // Changes redux store
+// Gets "array" from firebase and sets it
 
-// ------------------------------> SET ADD BLOG-POST STARTS
+// ------------------------------> START SET BLOG-POST STARTS
+export const startSetBlogPosts = () => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
 
-// ------------------------------> SET ADD BLOG-POST ENDS
+        return database.ref(`users/${uid}/blogPosts`).once("value").then((snapshot) => {
+            const blogPosts = [];
+
+            snapshot.forEach((childSnapshot) => {
+                blogPosts.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                });
+            });
+
+            dispatch(setBlogPosts(blogPosts));
+        });
+    };
+};
+// Fetches all data once
+// Parses data into an array
+// Dispatches setBogPosts
+// ------------------------------> START SET BLOG-POST ENDS
 
 ////////////////////////////////// SET BLOG-POST ENDS //////////////////////////////////
