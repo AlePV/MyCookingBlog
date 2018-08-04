@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import moment from "moment";
 
-const RecipeListitem = ({id, recipeName, ingredients, procedure, createdAt}) => {
+const BlogPostListItem = ({id, recipeName, ingredients, procedure, createdAt}) => {
 
     <Link to={`/edit/${id}`}>
         <div>
@@ -13,4 +13,4 @@ const RecipeListitem = ({id, recipeName, ingredients, procedure, createdAt}) => 
     </Link>
 };
 
-export default RecipeListitem;
+export default BlogPostListItem;
