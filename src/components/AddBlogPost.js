@@ -13,7 +13,7 @@ export class AddBlogPost extends React.Component {
     render() {
         return (
             <div>
-                <h1>Add Blog Post</h1>
+                <h1>Add Recipe Blog Post</h1>
 
                 <BlogPostForm 
                     onSubmit={this.onSubmit}
