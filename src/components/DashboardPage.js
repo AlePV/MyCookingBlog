@@ -1,8 +1,9 @@
 import React from "react";
+import BlogPostList from "./BlogPostList";
 
 const DashboardPage = () => (
     <div>
-        Dashboard Page content
+        <BlogPostList />
     </div>
 );
 
