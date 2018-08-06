@@ -78,16 +78,3 @@ module.exports = (env) => {
         }
     }
 };
-
-// LOADER = way to define how a file is transformed when Webpack uses it
-// ^^ ex: use babel to transform JSX to JS
-
-
-// Chacks if file loaded ends in js:: /\.js$/
-
-// DEVTOOL : controls how source maps are generated
-
-
-
-// BABEL-POLYFILL --> allows my application to run in a wider range of browsers and browser versions
-// BROWSERSTACK.COM --> allows to simulate my app on other browsers

@@ -99,7 +99,7 @@ export default class BlogPostForm extends React.Component {
                     isOutsideRange={() => false}
                 />
 
-                <button>Save recipe</button>
+                <button>Save</button>
 
             </form>
         )

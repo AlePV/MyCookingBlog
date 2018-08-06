@@ -35,7 +35,7 @@ export class EditBlogPost extends React.Component {
 
 const mapStateToProps = (state, props) => {
     return {
-        blogPost: state.blogPost.find((blogPost) => blogPost.id === props.match.params.id)
+        blogPost: state.blogPosts.find((blogPost) => blogPost.id === props.match.params.id)
     };
 };
 

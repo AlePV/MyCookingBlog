@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import moment from "moment";
 
-const BlogPostListItem = ({id, recipeName, ingredients, procedure, createdAt}) => {
+const BlogPostListItem = ({id, recipeName, ingredients, procedure, createdAt}) => (
 
     <Link to={`/edit/${id}`}>
         <div>
@@ -11,6 +11,6 @@ const BlogPostListItem = ({id, recipeName, ingredients, procedure, createdAt}) =
             <span>{moment(createdAt).format("M / D / YYYY")}</span>
         </div>
     </Link>
-};
+);
 
 export default BlogPostListItem;
