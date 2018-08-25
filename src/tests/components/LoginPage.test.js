@@ -8,8 +8,8 @@ test("should render LoginPage correctly", () => {
 });
 
 test("should call startLogin on button click", () => {
-    const startLogin = jest.fn(); //This is a spy // creates spy
-    const wrapper = shallow(<LoginPage startLogin={startLogin} />); // pass it in to LoginPage
-    wrapper.find("button").simulate("click"); // clicks the button
-    expect(startLogin).toHaveBeenCalled(); // expects the spy to have been called
+    const startLogin = jest.fn(); //This is a spy
+    const wrapper = shallow(<LoginPage startLogin={startLogin} />);
+    wrapper.find("button").simulate("click");
+    expect(startLogin).toHaveBeenCalled();
 });

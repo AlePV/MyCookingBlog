@@ -1,6 +1,3 @@
-// Just renders the component without props
-// and creates a snapshot
-
 import React from "react";
 import {shallow} from "enzyme";
 import PageNotFound from "../../components/PageNotFound";

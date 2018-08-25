@@ -8,7 +8,6 @@ test("should set uid for login", () => {
     const state = authReducer({}, action);
     expect(state.uid).toBe(action.uid);
 });
-// the {} in state in the parenthesis means the state (--> setting it equal to / starting it as an empty object)
 
 test("should clear uid for logout", () => {
     const action = {

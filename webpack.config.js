@@ -1,18 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-//console.log(path.join(__dirname,"public"));
-//-- __dirname - gives path to this file - /Users/marialepestana/Desktop/ReactCourse/IndecisionApp
-// But it needs to be joined to the path from the public foler, because that's where we want to put our file
-
-// Complete path: /Users/marialepestana/Desktop/ReactCourse/IndecisionApp/public 
-
-
-
-// IN PACKAGE>JSON ADDED SOME THINGS< EXPLANATION:
-// This is automatically set by Heroku (for production)
-// For development --> the abscence of an environment variable will tell us it is development
-
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 // This is an environment variable that stores the environment you are currently in
